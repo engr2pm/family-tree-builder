@@ -2,6 +2,8 @@
 
 An offline-first family tree app that runs in your browser. Add couples, parents, children and siblings, then explore the tree with pan, zoom, search, collapsible branches, focus mode and a compact view. Export the whole tree as PNG or PDF.
 
+**Live app: https://engr2pm.github.io/family-tree-builder/**
+
 Your data is stored locally in your browser (IndexedDB) and is never uploaded anywhere.
 
 ## Features
