@@ -1,0 +1,154 @@
+.tree-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.couple-node {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  touch-action: none;
+  /* React Flow sets pointer-events:none on the node wrapper when it has no
+     built-in selection/drag/click handlers wired up (we handle all interaction
+     ourselves) — override so real clicks actually reach this node's content. */
+  pointer-events: auto;
+}
+
+.couple-node.compact .person-avatar {
+  width: 30px;
+  height: 30px;
+}
+
+.couple-node.compact .person-avatar-placeholder {
+  font-size: 12px;
+}
+
+.couple-node.compact .person-name {
+  font-size: 11px;
+}
+
+.couple-node.compact .person-box {
+  padding: 6px 4px;
+  gap: 3px;
+}
+
+.person-divider {
+  width: 1px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.person-box {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-h);
+}
+
+.person-box:hover {
+  background: var(--accent-bg);
+}
+
+.person-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-bg);
+  flex-shrink: 0;
+}
+
+.person-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person-avatar-placeholder {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.person-name {
+  font-size: 12.5px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.node-handle {
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.branch-toggle {
+  position: absolute;
+  z-index: 5;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-h);
+  font-size: 13px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.branch-toggle:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* Depth-limited (focus mode boundary) reads distinctly from a manual
+   collapse — "more exists but is outside the current focus window" is a
+   different action (widen the window) than "hidden by choice" (expand). */
+.branch-toggle-depth-limited {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.branch-toggle-up-left {
+  top: -9px;
+  left: 22%;
+  transform: translateX(-50%);
+}
+
+.branch-toggle-up-right {
+  top: -9px;
+  left: 78%;
+  transform: translateX(-50%);
+}
+
+.branch-toggle-down {
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+}
